@@ -1,5 +1,5 @@
 <template>
-    <div :id="rootId" class="question">
+    <div :id="rootId" class="question" :class="{'answered': answered}">
         <div class="number-block" v-if="question.numberFile" >
             <div class="line">
                 <div class="current-number">{{number}}&#47;{{totalCount}}</div>
@@ -82,7 +82,10 @@
 
 <style scoped>
     .question {
-        margin-bottom: 100px;
+        padding-bottom: 170px;
+    }
+    .question.answered {
+        padding-bottom: 100px;
     }
     .number-block {
         display: flex;

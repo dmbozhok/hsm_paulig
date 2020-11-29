@@ -92,10 +92,10 @@ export default {
 		next() {
 			if (this.stage == this.questions.length-1) {
 				this.state = 'results';
-				setTimeout(this.scrollToFinish,100);
+				setTimeout(this.scrollToFinish,3000);
 			} else {
 				this.stage++;
-				setTimeout(this.scrollToQuestion,100);
+				setTimeout(this.scrollToQuestion,3000);
 			}
 		},
 		restart() {

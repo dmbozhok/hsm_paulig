@@ -1,0 +1,183 @@
+<template>
+  <div id="app">
+	<div class="container">
+		<StartScreen @start="goToQuiz"/>
+		<div class="questions" v-if="state != 'start'">
+			<Question
+				v-for="(question, index) in questions"
+				v-show="index <= stage"
+				:key="index"
+				:number="index + 1"
+				:question="question"
+				:totalCount="questions.length"
+				@answer="getAnswer"
+			/>
+		</div>
+	</div>
+  </div>
+</template>
+
+<script>
+import StartScreen from "./components/StartScreen";
+import Question from "./components/Question";
+
+//Vue.use(VueSmoothScroll);
+
+export default {
+	name: 'App',
+	components: {
+		StartScreen, Question
+	},
+	data () {
+		return {
+			questions: [],
+			resultTexts: [],
+			stage: 0,
+			state: 'start',
+			title: '',
+			timeout: null
+		}
+	},
+  
+	methods: {
+		goToQuiz() {
+			this.state = 'quiz';
+			this.stage = 0;
+			setTimeout(this.scrollToQuestion,100);
+			window.sendGA('click_begin');
+		},
+		scrollToQuestion(number = this.stage + 1) {
+			const element = document.getElementById('question-' + number);
+			console.log(number,element);
+			if(element) {
+				this.$smoothScroll({
+					scrollTo: element,
+					duration: 800,
+					updateHistory: false,
+					easingFunction: 'linear'
+				});
+			}
+		},
+		getAnswer(data) {
+			let object = this.questions[this.stage];
+			window.sendGA('quest_' + (this.stage+1));
+			if ( Array.isArray(data.answer) ) {
+				object.userAnswer = data.answer
+			} else {
+				object.userAnswer.push(data.answer);
+			}
+			object.userAnswer.sort();
+			object.correctAnswer.sort();
+			this.next();
+		},
+		next() {
+			if (this.stage == this.questions.length-1) {
+				this.state = 'results';
+			} else {
+				this.stage++;
+				setTimeout(this.scrollToQuestion,100);
+			}
+		},
+		restart() {
+			this.scrollToQuestion(1);
+			window.sendGA('click_again');
+			this.stage = 0;
+			this.state = 'quiz';
+			this.questions.forEach((item) => {
+				item.userAnswer.length = 0;
+			});
+		},
+		checkAnswer(question) {
+			if(Array.isArray(question.userAnswer)) {
+				return question.correctAnswer.join() == question.userAnswer.join();
+			} else {
+				return question.correctAnswer.indexOf(question.userAnswer) !== -1;
+			}
+		}
+	},
+	
+	computed: {
+		currentQuestion: function() {
+			return this.questions[this.stage] || {};
+		},
+		isMobile: function() {
+			const isMobileVar = {
+				Android: function () {
+						return navigator.userAgent.match(/Android/i);
+				},
+				BlackBerry: function () {
+						return navigator.userAgent.match(/BlackBerry/i);
+				},
+				iOS: function () {
+						return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+				},
+				Opera: function () {
+						return navigator.userAgent.match(/Opera Mini/i);
+				},
+				Windows: function () {
+						return navigator.userAgent.match(/IEMobile/i);
+				},
+				any: function () {
+						return (isMobileVar.Android() || isMobileVar.BlackBerry() || isMobileVar.iOS() || isMobileVar.Opera() || isMobileVar.Windows());
+				}
+			};
+			return isMobileVar.any();
+		},
+		correctAnswersCount: function() {
+			return this.questions.filter(this.checkAnswer).length;
+		},
+		testResult: function() {
+			return this.resultTexts.filter((v) => v.from <= this.correctAnswersCount && this.correctAnswersCount <= v.to)[0];
+		}
+	},
+	
+	created: function () {
+		const testData = window.testData;
+		if(typeof testData !== 'undefined') {
+			if(Array.isArray(testData.questions) && testData.questions.length) {
+				this.questions = testData.questions;
+			}
+			if(Array.isArray(testData.resultTexts) && testData.resultTexts.length) {
+				this.resultTexts = testData.resultTexts;
+			}
+		}
+	}
+}
+</script>
+
+<style>
+#app {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 55px;
+}
+.container {
+  width: 1240px;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+.btn {
+  background: #890422;
+  border-radius: 12px;
+  font-family: Intro, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #D8B674;
+  margin: 0 auto;
+  display: block;
+  width: 163px;
+  height: 45px;
+  border: none;
+  outline: 0;
+  line-height: 45px;
+  cursor: pointer;
+}
+</style>

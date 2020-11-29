@@ -10,9 +10,14 @@
 				:number="index + 1"
 				:question="question"
 				:totalCount="questions.length"
+				:bus="bus"
 				@answer="getAnswer"
 			/>
 		</div>
+		<FinalScreen v-if='state == "results"'
+			:result='testResult'
+			@restart='restart'
+		/>
 	</div>
   </div>
 </template>
@@ -20,13 +25,15 @@
 <script>
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
+import FinalScreen from "./components/FinalScreen"
+import Vue from 'vue';
 
 //Vue.use(VueSmoothScroll);
 
 export default {
 	name: 'App',
 	components: {
-		StartScreen, Question
+		StartScreen, Question, FinalScreen
 	},
 	data () {
 		return {
@@ -35,7 +42,8 @@ export default {
 			stage: 0,
 			state: 'start',
 			title: '',
-			timeout: null
+			timeout: null,
+			bus: new Vue(),
 		}
 	},
   
@@ -49,6 +57,17 @@ export default {
 		scrollToQuestion(number = this.stage + 1) {
 			const element = document.getElementById('question-' + number);
 			console.log(number,element);
+			if(element) {
+				this.$smoothScroll({
+					scrollTo: element,
+					duration: 800,
+					updateHistory: false,
+					easingFunction: 'linear'
+				});
+			}
+		},
+		scrollToFinish() {
+			const element = document.querySelector('.final-screen');
 			if(element) {
 				this.$smoothScroll({
 					scrollTo: element,
@@ -73,6 +92,7 @@ export default {
 		next() {
 			if (this.stage == this.questions.length-1) {
 				this.state = 'results';
+				setTimeout(this.scrollToFinish,100);
 			} else {
 				this.stage++;
 				setTimeout(this.scrollToQuestion,100);
@@ -86,6 +106,7 @@ export default {
 			this.questions.forEach((item) => {
 				item.userAnswer.length = 0;
 			});
+			this.bus.$emit('restart');
 		},
 		checkAnswer(question) {
 			if(Array.isArray(question.userAnswer)) {
@@ -153,6 +174,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 55px;
+  overflow: hidden;
 }
 .container {
   width: 1240px;
@@ -163,7 +185,7 @@ export default {
 .btn {
   background: #890422;
   border-radius: 12px;
-  font-family: Intro, sans-serif;
+  font-family: Intro, Roboto, sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

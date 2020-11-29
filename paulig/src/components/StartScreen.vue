@@ -36,6 +36,7 @@ export default {
     .start-screen {
         position: relative;
         min-height: 100vh;
+        padding-bottom: 20vw;
     }
     .left-part, .right-part {
         display: none;
@@ -50,5 +51,23 @@ export default {
         line-height: 120.8%;
         color: #D8B674;
         max-width: 750px;
+    }
+    @media screen and (min-width: 1280px) {
+        .left-part {
+            display: block;
+            position: absolute;
+            right: 50%;
+            transform: translateX(-265px);
+            z-index: -1;
+            top: 376px;
+        }
+        .right-part {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(478px);
+            z-index: -1;
+            top: 97px;
+        }
     }
 </style>

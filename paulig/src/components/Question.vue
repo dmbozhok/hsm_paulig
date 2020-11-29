@@ -22,7 +22,7 @@
                 <label :for="getAnswerId(answerKey)"><div class="answer-text">{{answer}}</div></label>
             </div>
         </div>
-        <div v-if="userAnswer.length" class="question-result">
+        <div v-if="question.userAnswer.length" class="question-result">
             <div class="result-title" v-if="isCorrectAnswer()">Правильный ответ</div>
             <div class="result-title" v-else>Неправильный ответ</div>
             <div class="result-text" v-if="isCorrectAnswer() && question.correctText">{{question.correctText}}</div>
@@ -33,7 +33,7 @@
 <script>
 	export default {
 		name: "Question",
-		props: ['question', 'number', 'totalCount'],
+		props: ['question', 'number', 'totalCount','bus'],
 		data() {
 			return {
                 userAnswer: [],
@@ -46,12 +46,11 @@
             }
         },
 		methods: {
-			sendUserData(event) {
+			sendUserData() {
+                console.log('sendUserData', this.userAnswer);
                 if(this.answered === false) {
                     this.$emit('answer', {answer: this.userAnswer});
                     this.answered = true;
-                } else {
-                    event.preventDefault();
                 }
 			},
 			isCorrectAnswer() {
@@ -66,10 +65,17 @@
             },
             getAnswerName() {
                 return 'answer-' + this.number;
+            },
+            restart() {
+                this.userAnswer = [];
+                this.answered = false;
             }
 		},
 		updated() {
-		}	
+        },
+        mounted() {
+            this.bus.$on('restart', this.restart)
+        }, 
 	}
 </script>
 
@@ -87,13 +93,29 @@
         height: 1px;
         box-sizing: border-box;
         border-top: 1px dashed #D8B674;
+        position: relative;
+    }
+    .current-number {
+        font-family: Intro, Roboto, sans-serif ;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 36px;
+        text-align: right;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #D8B674;
+        position: absolute;
+        top: 61px;
+        left: 0;
+        right: 0;
     }
     .number {
         flex: 0 0 auto;
         margin: 0 auto;
     }
     .question-text {
-        font-family: Intro ;
+        font-family: Intro, Roboto, sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 50px;
@@ -118,6 +140,10 @@
         padding-left: 87px;
         display: flex;
         position: relative;
+        cursor: pointer;
+    }
+    .answer input:disabled + label {
+        cursor: not-allowed;
     }
     .answer label::before {
         position: absolute;
@@ -140,6 +166,9 @@
         line-height: 56px;
         color: #FFFFFF;
     }
+    .question-result {
+        margin-top: 40px;
+    }
     .result-title {
         font-family: Roboto, sans-serif;
         font-style: normal;
@@ -159,6 +188,6 @@
         text-align: center;
         color: #D8B674;
         max-width: 700px;
-        margin-top: 30px;
+        margin: 30px auto;
     }
 </style>

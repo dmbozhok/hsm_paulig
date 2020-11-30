@@ -130,8 +130,8 @@
         font-family: Intro, Roboto, sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 1.125rem;
+        line-height: 1;
         text-align: center;
         letter-spacing: 0.25em;
         text-transform: uppercase;
@@ -141,8 +141,8 @@
         font-family: Intro, Roboto, sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 64px;
-        line-height: 64px;
+        font-size: 2rem;
+        line-height: 1;
         text-align: center;
         text-transform: uppercase;
         color: #FFFFFF;
@@ -151,8 +151,8 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 0.75rem;
+        line-height: 1.166667;
         text-align: center;
         max-width: 760px;
         margin: 80px auto 90px;
@@ -168,8 +168,8 @@
         font-family: Intro, Roboto, sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 0.5625rem;
+        line-height: 1;
         letter-spacing: 0.25em;
         text-transform: uppercase;
         color: #820722;
@@ -179,18 +179,29 @@
         margin-right: 6px;
     }
     .coffee-result {
-        display: none;
+        display: block;
+        position: absolute;
+        right: 50%;
+        transform: translateX(-27vw);
+        top: 450px;
+        width: 100px;
     }
     .coffee-one {
-        display: none;
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(27vw);
+        top: 490px;
+        width: 100px;
     }
-    @media screen and (min-width:1000px) {
+    @media screen and (min-width: 768px) {
         .coffee-result {
             display: block;
             position: absolute;
             right: 50%;
             transform: translateX(-27vw);
             top: 74px;
+            width: auto;
         }
         .coffee-one {
             display: block;
@@ -198,6 +209,10 @@
             left: 50%;
             transform: translateX(25vw);
             top: 187px;
+            width: auto;
+        }
+        .result-text {
+            width: 50vw;
         }
     }
 </style>

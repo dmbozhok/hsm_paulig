@@ -102,14 +102,14 @@
         font-family: Intro, Roboto, sans-serif ;
         font-style: normal;
         font-weight: normal;
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 1.125rem;
+        line-height: 1;
         text-align: right;
         letter-spacing: 0.25em;
         text-transform: uppercase;
         color: #D8B674;
         position: absolute;
-        top: 61px;
+        top: 1.75rem;
         left: 0;
         right: 0;
     }
@@ -117,17 +117,20 @@
         flex: 0 0 auto;
         margin: 0 auto;
     }
+    .number img {
+        height: 5.625rem;
+    }
     .question-text {
         font-family: Intro, Roboto, sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 50px;
-        line-height: 50px;
+        font-size: 1.375rem;
+        line-height: 1;
         text-align: center;
         text-transform: uppercase;
         color: #FFFFFF;
-        max-width: 1000px;
-        margin: 45px auto;
+        max-width: 900px;
+        margin: 40px auto;
     }
     .answers {
         display: inline-block;
@@ -140,7 +143,7 @@
         display: none;
     }
     .answer label {
-        padding-left: 87px;
+        padding-left: 2.75rem;
         display: flex;
         position: relative;
         cursor: pointer;
@@ -153,10 +156,11 @@
         top: 0;
         left: 0;
         display: inline;
-        width: 58px;
-        height: 58px;
+        width: 1.8125rem;
+        height: 1.8125rem;
         content: '';
         background-image: url("data:image/svg+xml,%3Csvg width='58' height='58' viewBox='0 0 58 58' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29 6.44444L6.44444 29L29 51.5556L51.5556 29L29 6.44444ZM1.61111 27.3889L29 0L58 29L29 58L0 29L1.61111 27.3889Z' fill='%23D8B674'/%3E%3C/svg%3E%0A");
+        background-size: 100%;
     }
     .answer input:checked + label::before {
         background-image: url("data:image/svg+xml,%3Csvg width='58' height='58' viewBox='0 0 58 58' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29 6.44444L6.44444 29L29 51.5556L51.5556 29L29 6.44444ZM16.1111 29L29 16.1111L41.8889 29L29 41.8889L16.1111 29ZM1.61111 27.3889L29 0L58 29L29 58L0 29L1.61111 27.3889Z' fill='%23D8B674'/%3E%3C/svg%3E%0A");
@@ -165,19 +169,19 @@
         font-family: Roboto, sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 48px;
-        line-height: 56px;
+        font-size: 1.375rem;
+        line-height: 1.16667;
         color: #FFFFFF;
     }
     .question-result {
-        margin-top: 40px;
+        margin-top: 20px;
     }
     .result-title {
         font-family: Roboto, sans-serif;
         font-style: normal;
         font-weight: 900;
-        font-size: 30px;
-        line-height: 35px;
+        font-size: 0.9375rem;
+        line-height: 1.16667;
         text-align: center;
         text-transform: uppercase;
         color: #D8B674;
@@ -186,11 +190,16 @@
         font-family: Roboto, sans-serif;
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 0.75rem;
+        line-height: 1.16667;
         text-align: center;
         color: #D8B674;
         max-width: 700px;
         margin: 30px auto;
+    }
+    @media screen and (max-width: 767px) {
+        .number {
+            margin: 0 15px;
+        }
     }
 </style>

@@ -80,7 +80,7 @@ export default {
 		getAnswer(data) {
 			let object = this.questions[this.stage];
 			window.sendGA('quest_' + (this.stage+1));
-			if ( Array.isArray(data.answer) ) {
+			if (Array.isArray(data.answer)) {
 				object.userAnswer = data.answer
 			} else {
 				object.userAnswer.push(data.answer);
@@ -92,10 +92,11 @@ export default {
 		next() {
 			if (this.stage == this.questions.length-1) {
 				this.state = 'results';
-				setTimeout(this.scrollToFinish,3000);
+				setTimeout(this.scrollToFinish, 2000);
 			} else {
+				let timeout = this.questions[this.stage].correctText ? 2000 : 1000;
 				this.stage++;
-				setTimeout(this.scrollToQuestion,3000);
+				setTimeout(this.scrollToQuestion, timeout);
 			}
 		},
 		restart() {
@@ -176,6 +177,16 @@ export default {
   margin-top: 55px;
   overflow: hidden;
 }
+@media screen and (max-width: 767px) {
+	#app {
+		padding: 0 20px;
+	}
+}
+@media screen and (min-width: 768px) {
+	#app {
+		padding: 0 50px;
+	}
+}
 .container {
   width: 1240px;
   margin: 0 auto;
@@ -189,7 +200,7 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 1;
   text-align: center;
   text-transform: uppercase;
   color: #D8B674;

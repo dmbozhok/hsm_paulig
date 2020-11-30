@@ -33,21 +33,24 @@ export default {
 </script>
 
 <style scoped>
+    img {
+        max-width: 100%;
+        height: auto;
+    }
     .start-screen {
         position: relative;
-        min-height: 100vh;
-        padding-bottom: 20vw;
+        min-height: calc( 100vh - 60px);
     }
     .left-part, .right-part {
         display: none;
     }
     .logo {
-        margin-bottom: 90px;
+        margin-bottom: 80px;
     }
     .text {
-        margin: 60px auto 45px;
+        margin: 50px auto 40px;
         font-weight: 300;
-        font-size: 28px;
+        font-size: 0.875rem;
         line-height: 120.8%;
         color: #D8B674;
         max-width: 750px;

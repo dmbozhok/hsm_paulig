@@ -65,9 +65,30 @@
       }
       html {
         font-family: 'Roboto', sans-serif;
+        font-size: 32px;
       }
       .paulig-test {
         background: url(img/bg.png) repeat-y;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      @media screen and (max-width: 767px) {
+        html {
+          font-size: 16px;
+        }
+      }
+      @media screen and (min-width: 768px) and (max-width: 1240px) {
+        html {
+          font-size: 24px;
+        }
+      }
+      @font-face {
+        font-family: 'Intro';
+        src: url("fonts/Intro.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
       }
     </style>
     <script src='js/data.js'></script>

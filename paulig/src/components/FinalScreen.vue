@@ -7,7 +7,7 @@
         </div>
         <div class="result-title">{{result.title}}</div>
         <div class="result-text" v-html="result.html"></div>
-        <div class="coffee-result" v-if="result.img"><img :src="result.img" :alt="result.title"></div>
+        <div class="coffee-result" v-if="result.img" :class="result.class"><img :src="result.img" :alt="result.title"></div>
         <div class="coffee-one"><img src="img/coffee.png" alt=""></div>
         <button class="btn" @click.prevent="restart">Пройти еще раз</button>
         <div class="share-buttons">
@@ -155,7 +155,7 @@
         line-height: 1.166667;
         text-align: center;
         max-width: 760px;
-        margin: 80px auto 90px;
+        margin: 2.5rem auto 90px;
         color: #D8B674;
     }
     .share-buttons {
@@ -183,15 +183,23 @@
         position: absolute;
         right: 50%;
         transform: translateX(-27vw);
-        top: 450px;
+        top: 410px;
         width: 100px;
+    }
+    .coffee-result.result-1 {
+        top: 490px;
+        transform: translateX(-24vw);
+    }
+    .coffee-result.result-3 {
+        top: 500px;
+        transform: translateX(-25vw);
     }
     .coffee-one {
         display: block;
         position: absolute;
         left: 50%;
         transform: translateX(27vw);
-        top: 490px;
+        top: 450px;
         width: 100px;
     }
     @media screen and (min-width: 768px) {
@@ -203,12 +211,19 @@
             top: 74px;
             width: auto;
         }
+        .coffee-result.result-3 {
+            top: 450px;
+        }
+        .coffee-result.result-1 {
+            top: 500px;
+            transform: translateX(-20vw);
+        }
         .coffee-one {
             display: block;
             position: absolute;
             left: 50%;
             transform: translateX(25vw);
-            top: 187px;
+            top: 310px;
             width: auto;
         }
         .result-text {

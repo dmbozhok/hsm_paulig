@@ -130,14 +130,14 @@
         text-transform: uppercase;
         color: #FFFFFF;
         max-width: 900px;
-        margin: 40px auto;
+        margin: 4vh auto;
     }
     .answers {
         display: inline-block;
         text-align: left;
     }
     .answer {
-        margin-bottom: 40px;
+        margin-bottom: 4vh;
     }
     .answer input {
         display: none;

@@ -65,22 +65,7 @@
             <a :href="'https://twitter.com/share?url=' + href + '&via=TWITTER_HANDLE'"
                 onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                    <path d="M25.4888 5.44689L6.42467 24.511L25.4888 43.5751L44.5529 24.511L25.4888 5.44689ZM2.33951 23.1493L25.4888 0L49.9998 24.511L25.4888 49.022L0.977783 24.511L2.33951 23.1493Z" fill="#820722"/>
-                    <g clip-path="url(#clip1)">
-                    <path d="M35.5004 18.1202C35.3665 18.403 35.1172 18.7601 34.7526 19.1917C34.388 19.6232 33.9378 20.0027 33.4021 20.3301C33.417 20.4492 33.4281 20.5608 33.4356 20.6649C33.4933 22.2688 33.1092 23.9328 32.5762 25.3191C31.543 27.8967 29.9599 29.9711 27.6987 31.3796C25.3408 32.7322 22.5946 33.0198 20.0645 32.7748C18.3848 32.5819 16.7293 32.0334 15.4773 31.0002C17.7672 31.2739 19.9041 30.4949 21.5936 29.2367C19.7169 29.2842 18.3533 27.9266 17.7095 26.3571C17.9998 26.4332 18.3034 26.424 18.5801 26.4018C18.9208 26.3698 19.2441 26.3378 19.5623 26.2679C18.3656 25.8818 17.3186 25.172 16.772 24.1026C16.4514 23.425 16.3067 22.7797 16.3032 22.0489C16.864 22.3441 17.5385 22.6319 18.156 22.607C17.2234 21.8169 16.4757 20.8073 16.3367 19.6493C16.249 18.6837 16.4906 17.8023 16.839 16.9817C18.2341 18.5149 19.7993 19.7767 21.6048 20.5533C22.8395 21.0589 24.0707 21.3293 25.3438 21.3346C25.1968 20.1975 25.3111 19.0978 25.846 18.1648C26.4756 17.1617 27.3941 16.5797 28.4243 16.2897C29.8983 15.9118 31.3359 16.4457 32.2414 17.4728C33.2179 17.3673 34.1533 16.9341 34.8978 16.4906C34.5814 17.4486 33.9654 18.401 33.0673 18.8568C33.9224 18.6985 34.7384 18.4453 35.5004 18.1202Z" fill="#820722"/>
-                    </g>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0">
-                    <rect width="49.022" height="49.022" fill="white" transform="translate(0.977783)"/>
-                    </clipPath>
-                    <clipPath id="clip1">
-                    <rect width="20.0231" height="20.0231" fill="white" transform="translate(15.4773 14.4994)"/>
-                    </clipPath>
-                    </defs>
-                </svg>
+                <img src="img/twitter.svg" alt="">
             </a>
         </div>
     </div>
@@ -115,8 +100,8 @@
     .result-caption-block {
         display: flex;
         align-items: center;
-        margin: 0px auto 50px;
-        padding-top: 70px;
+        margin: 0px auto 5vh;
+        padding-top: 5vh;
     }
     .result-caption-block .line {
         flex: 0 1 475px;
@@ -155,14 +140,14 @@
         line-height: 1.166667;
         text-align: center;
         max-width: 760px;
-        margin: 2.5rem auto 90px;
+        margin: 2.5rem auto 2.75rem;
         color: #D8B674;
     }
     .share-buttons {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 100px auto;
+        margin: 5rem auto 3rem;
     }
     .share-text {
         font-family: Intro, Roboto, sans-serif;
@@ -183,15 +168,16 @@
         position: absolute;
         right: 50%;
         transform: translateX(-27vw);
-        top: 410px;
+        top: 310px;
         width: 100px;
+        z-index: -1;
     }
     .coffee-result.result-1 {
-        top: 490px;
+        top: 390px;
         transform: translateX(-24vw);
     }
     .coffee-result.result-3 {
-        top: 500px;
+        top: 400px;
         transform: translateX(-25vw);
     }
     .coffee-one {
@@ -199,8 +185,9 @@
         position: absolute;
         left: 50%;
         transform: translateX(27vw);
-        top: 450px;
+        top: 350px;
         width: 100px;
+        z-index: -1;
     }
     @media screen and (min-width: 768px) {
         .coffee-result {
@@ -208,7 +195,7 @@
             position: absolute;
             right: 50%;
             transform: translateX(-27vw);
-            top: 74px;
+            top: 204px;
             width: auto;
         }
         .coffee-result.result-3 {
@@ -228,6 +215,9 @@
         }
         .result-text {
             width: 50vw;
+        }
+        .share-buttons {
+            margin: 100px auto;
         }
     }
 </style>

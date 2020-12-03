@@ -39,21 +39,27 @@ export default {
     }
     .start-screen {
         position: relative;
-        min-height: calc( 100vh - 60px);
+        min-height: 97vh;
     }
     .left-part, .right-part {
         display: none;
     }
     .logo {
-        margin-bottom: 80px;
+        margin-bottom: 3vh;
     }
     .text {
-        margin: 50px auto 40px;
+        margin: 4vh auto 3vh;
         font-weight: 300;
         font-size: 0.875rem;
         line-height: 120.8%;
         color: #D8B674;
         max-width: 750px;
+    }
+    @media screen and (min-width: 1200px) {
+        .subtitle {
+            max-width: 65vw;
+            margin: 0 auto;
+        }
     }
     @media screen and (min-width: 1280px) {
         .left-part {

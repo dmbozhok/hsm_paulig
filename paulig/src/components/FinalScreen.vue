@@ -9,7 +9,7 @@
         <div class="result-text" v-html="result.html"></div>
         <div class="coffee-result" v-if="result.img" :class="result.class"><img :src="result.img" :alt="result.title"></div>
         <div class="coffee-one">
-            <a @click="window.sendGA('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">
+            <a @click="sendGALocal('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter" target="_blank">
                 <img src="img/coffee.png" alt="">
             </a>
         </div>
@@ -17,7 +17,7 @@
         <div class="share-buttons">
             <div class="share-text">поделись<br>с друзьями</div>
             <a :href="'https://vk.com/share.php?url=' + href"
-                onclick="javascript:window.sendGA('share_vk');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:sendGALocal('share_vk');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -32,7 +32,7 @@
                 </svg>
             </a>
             <a :href="'https://connect.ok.ru/offer?url=' + href"
-                onclick="javascript:window.sendGA('share_ok');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:sendGALocal('share_ok');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -47,7 +47,7 @@
                 </svg>
             </a>
             <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + href"
-                onclick="javascript:window.sendGA('share_fb');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:sendGALocal('share_fb');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -67,7 +67,7 @@
                 </svg>
             </a>
             <a :href="'https://twitter.com/share?url=' + href + '&via=TWITTER_HANDLE'"
-                onclick="javascript:window.sendGA('share_tw');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:sendGALocal('share_tw');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <img src="img/twitter.svg" alt="">
             </a>
@@ -91,7 +91,10 @@
 		methods: {
 			restart() {
 				this.$emit('restart');
-			}
+            },
+            sendGALocal(event) {
+                window.sendGA(event);
+            }
 		}		
 	}	
 </script>

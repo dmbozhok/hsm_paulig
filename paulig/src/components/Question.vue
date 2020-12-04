@@ -68,6 +68,9 @@
             restart() {
                 this.userAnswer = [];
                 this.answered = false;
+            },
+            sendGALocal(event) {
+                window.sendGA(event);
             }
 		},
 		updated() {

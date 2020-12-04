@@ -1,10 +1,10 @@
 <template>
 <div class="start-screen">
-    <div class="logo"><a @click="window.sendGA('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter"><img src="img/logo.png" alt="Paulig"></a></div>
+    <div class="logo"><a @click="sendGALocal('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter" target="_blank"><img src="img/logo.png" alt="Paulig"></a></div>
     <div class="subtitle"><img src="img/subtitle.png" alt=""></div>
     <div class="text">
         Вы знаете о кофе все или только учитесь разбираться в тонкостях этого изумительного напитка?<br>
-        Пора расставить точки над i. Пройдите тест, разработанный совместно с командой бариста компании <a @click="window.sendGA('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a>, и узнайте, кто вы в мире кофе. 
+        Пора расставить точки над i. Пройдите тест, разработанный совместно с командой бариста компании <a @click="sendGALocal('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter" target="_blank">Paulig</a>, и узнайте, кто вы в мире кофе. 
     </div>
     <button 
         class="btn"
@@ -27,6 +27,9 @@ export default {
     methods: {
         start: function start() {
             this.$emit('start');
+        },
+        sendGALocal(event) {
+            window.sendGA(event);
         }
     }
 }

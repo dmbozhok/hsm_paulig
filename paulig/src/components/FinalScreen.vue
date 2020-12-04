@@ -8,12 +8,16 @@
         <div class="result-title">{{result.title}}</div>
         <div class="result-text" v-html="result.html"></div>
         <div class="coffee-result" v-if="result.img" :class="result.class"><img :src="result.img" :alt="result.title"></div>
-        <div class="coffee-one"><img src="img/coffee.png" alt=""></div>
+        <div class="coffee-one">
+            <a @click="window.sendGA('click_paulig')" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">
+                <img src="img/coffee.png" alt="">
+            </a>
+        </div>
         <button class="btn" @click.prevent="restart">Пройти еще раз</button>
         <div class="share-buttons">
             <div class="share-text">поделись<br>с друзьями</div>
             <a :href="'https://vk.com/share.php?url=' + href"
-                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:window.sendGA('share_vk');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -28,7 +32,7 @@
                 </svg>
             </a>
             <a :href="'https://connect.ok.ru/offer?url=' + href"
-                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:window.sendGA('share_ok');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -43,7 +47,7 @@
                 </svg>
             </a>
             <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + href"
-                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:window.sendGA('share_fb');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -63,7 +67,7 @@
                 </svg>
             </a>
             <a :href="'https://twitter.com/share?url=' + href + '&via=TWITTER_HANDLE'"
-                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                onclick="javascript:window.sendGA('share_tw');window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                 target="_blank">
                 <img src="img/twitter.svg" alt="">
             </a>
@@ -96,6 +100,10 @@
     .final-screen {
         min-height: 100vh;
         position: relative;
+    }
+    .final-screen > div {
+        position: relative;
+        z-index: 5;
     }
     .result-caption-block {
         display: flex;
@@ -163,34 +171,34 @@
     .share-buttons a:not(:last-child) {
         margin-right: 6px;
     }
-    .coffee-result {
+    .final-screen .coffee-result {
         display: block;
         position: absolute;
         right: 50%;
         transform: translateX(-27vw);
         top: 310px;
         width: 100px;
-        z-index: -1;
+        z-index: 1;
     }
-    .coffee-result.result-1 {
+    .final-screen .coffee-result.result-1 {
         top: 390px;
         transform: translateX(-24vw);
     }
-    .coffee-result.result-3 {
+    .final-screen .coffee-result.result-3 {
         top: 400px;
         transform: translateX(-25vw);
     }
-    .coffee-one {
+    .final-screen .coffee-one {
         display: block;
         position: absolute;
         left: 50%;
         transform: translateX(27vw);
         top: 350px;
         width: 100px;
-        z-index: -1;
+        z-index: 1;
     }
     @media screen and (min-width: 768px) {
-        .coffee-result {
+        .final-screen .coffee-result {
             display: block;
             position: absolute;
             right: 50%;
@@ -198,14 +206,14 @@
             top: 204px;
             width: auto;
         }
-        .coffee-result.result-3 {
+        .final-screen .coffee-result.result-3 {
             top: 450px;
         }
-        .coffee-result.result-1 {
+        .final-screen .coffee-result.result-1 {
             top: 500px;
             transform: translateX(-20vw);
         }
-        .coffee-one {
+        .final-screen .coffee-one {
             display: block;
             position: absolute;
             left: 50%;

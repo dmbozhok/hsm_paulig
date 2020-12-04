@@ -16,7 +16,7 @@ var testData = {
       answerType: 'radio',
       correctAnswer: ['Арабика'],
       userAnswer: [],
-      correctText: 'Именно поэтому кофе Paulig Presidentti Ruby создается исключительно из отборных зерен арабики.',
+      correctText: 'Именно поэтому кофе <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby создается исключительно из отборных зерен арабики.',
       incorrectText: '',
       numberFile: 'img/02.svg',
     },
@@ -56,7 +56,7 @@ var testData = {
       answerType: 'radio',
       correctAnswer: ['Раф-кофе'],
       userAnswer: [],
-      correctText: 'Основой для чашки идеального раф-кофе станет Paulig Presidentti Ruby — он подарит сливочному вкусу напитка все богатство шоколадных и ягодных оттенков.',
+      correctText: 'Основой для чашки идеального раф-кофе станет <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby — он подарит сливочному вкусу напитка все богатство шоколадных и ягодных оттенков.',
       incorrectText: '',
       numberFile: 'img/06.svg',
     },
@@ -86,7 +86,7 @@ var testData = {
       answerType: 'radio',
       correctAnswer: ['Мокачино'],
       userAnswer: [],
-      correctText: 'Готовьте напиток на основе Paulig Presidentti Ruby — он усилит шоколадные нотки мокачино.',
+      correctText: 'Готовьте напиток на основе <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby — он усилит шоколадные нотки мокачино.',
       incorrectText: '',
       numberFile: 'img/09.svg',
     },
@@ -106,7 +106,7 @@ var testData = {
       answerType: 'radio',
       correctAnswer: ['Финляндия'],
       userAnswer: [],
-      correctText: 'Неудивительно, что Paulig, производитель кофе с почти 150-летней историей, родом из Финляндии, не правда ли?',
+      correctText: 'Неудивительно, что <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a>, производитель кофе с почти 150-летней историей, родом из Финляндии, не правда ли?',
       incorrectText: '',
       numberFile: 'img/11.svg',
     },
@@ -126,7 +126,7 @@ var testData = {
       from:0,
       to:4,
       title: 'Скромный Американо',
-      html: "Похоже, ваше знакомство с кофе ограничивается большим картонным стаканчиком «на вынос» по утрам. Почему бы не продвинуться чуть дальше, заварив кофе самостоятельно? Для этих целей рекомендуем выбрать Paulig Presidentti Ruby, чей незабываемый вкус с нотками шоколада и фруктово-ягодным послевкусием вдохновит вас пополнить ряды искушенных кофеманов. К тому же, согласно рекомендациям производителя, такой кофе отлично подойдет для простого и быстрого заваривания в чашке.",
+      html: 'Похоже, ваше знакомство с кофе ограничивается большим картонным стаканчиком «на вынос» по утрам. Почему бы не продвинуться чуть дальше, заварив кофе самостоятельно? Для этих целей рекомендуем выбрать <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby, чей незабываемый вкус с нотками шоколада и фруктово-ягодным послевкусием вдохновит вас пополнить ряды искушенных кофеманов. К тому же, согласно рекомендациям производителя, такой кофе отлично подойдет для простого и быстрого заваривания в чашке.',
       img: "img/result-1.png",
       class: "result-1"
     },
@@ -134,7 +134,7 @@ var testData = {
       from: 5,
       to: 8,
       title: 'Авангардный Фраппе',
-      html: "В кофе вы больше всего цените разнообразие и эффектную подачу, а не происхождение зерен или оттенки вкуса. Попробуйте поднять планку для того кофе, который вы готовите дома, — познакомьтесь с новым Paulig Presidentti Ruby. Этот кофе производится из стопроцентной арабики средней обжарки. Сладкие ноты шоколада и ягод привнесут уникальность в любой кофейный коктейль, так что советуем погрузиться в таинства рецептов приготовления фраппе, латте макиато или кон панна с корицей на основе Paulig Presidentti Ruby.",
+      html: 'В кофе вы больше всего цените разнообразие и эффектную подачу, а не происхождение зерен или оттенки вкуса. Попробуйте поднять планку для того кофе, который вы готовите дома, — познакомьтесь с новым <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby. Этот кофе производится из стопроцентной арабики средней обжарки. Сладкие ноты шоколада и ягод привнесут уникальность в любой кофейный коктейль, так что советуем погрузиться в таинства рецептов приготовления фраппе, латте макиато или кон панна с корицей на основе <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby.',
       img: "img/result-2.png",
       class: "result-2"
     },
@@ -142,7 +142,7 @@ var testData = {
       from: 9,
       to: 12,
       title: 'Чистый Эспрессо',
-      html: "В кругу кофейных знатоков вы чувствуете себя как дома. Чутье никогда вас не подводит, а кислотность и горчинка кофе в вашей демитассе гармонично сплетаются в насыщенный вкус, достойный профессиональных бариста. Уверены, вы по достоинству оцените кофейную новинку — Paulig Presidentti Ruby, бленд из стопроцентной восточноафриканской арабики, вдохновленный рубиновым шоколадом и обладающий ярко выраженным ягодным послевкусием. Подберите привычный формат кофе, отвечающий вашим кофейным привычкам: молотый или в зернах.",
+      html: 'В кругу кофейных знатоков вы чувствуете себя как дома. Чутье никогда вас не подводит, а кислотность и горчинка кофе в вашей демитассе гармонично сплетаются в насыщенный вкус, достойный профессиональных бариста. Уверены, вы по достоинству оцените кофейную новинку — <a onclick="window.sendGA(\"click_paulig\")" href="http://pubads.g.doubleclick.net/gampad/clk?id=5552859541&iu=/81006599/hmiru-wday/counter">Paulig</a> Presidentti Ruby, бленд из стопроцентной восточноафриканской арабики, вдохновленный рубиновым шоколадом и обладающий ярко выраженным ягодным послевкусием. Подберите привычный формат кофе, отвечающий вашим кофейным привычкам: молотый или в зернах.',
       img: "img/result-3.png",
       class: "result-3"
     }
@@ -151,9 +151,9 @@ var testData = {
 
 var sendGA = function(eventName) {
     if(typeof window.ga !== 'undefined') {
-      window.ga('send','event',eventName);
-      console.log('send info to ga',eventName);
+      window.ga('send','event', eventName);
+      console.log('send info to ga', eventName);
     } else {
-      console.error('ga is not available, cannot send info',eventName);
+      console.error('ga is not available, cannot send info', eventName);
     }
 }

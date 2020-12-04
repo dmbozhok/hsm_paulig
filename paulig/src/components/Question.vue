@@ -25,7 +25,7 @@
         <div v-if="question.userAnswer.length" class="question-result">
             <div class="result-title" v-if="isCorrectAnswer()">Правильный ответ</div>
             <div class="result-title" v-else>Неправильный ответ</div>
-            <div class="result-text" v-if="isCorrectAnswer() && question.correctText">{{question.correctText}}</div>
+            <div class="result-text" v-if="isCorrectAnswer() && question.correctText" v-html="question.correctText"></div>
         </div>
     </div>
 </template>
@@ -47,7 +47,6 @@
         },
 		methods: {
 			sendUserData() {
-                console.log('sendUserData', this.userAnswer);
                 if(this.answered === false) {
                     this.$emit('answer', {answer: this.userAnswer});
                     this.answered = true;
@@ -196,6 +195,9 @@
         color: #D8B674;
         max-width: 700px;
         margin: 30px auto;
+    }
+    .result-text a {
+        color: #D8B674;
     }
     @media screen and (max-width: 767px) {
         .number {

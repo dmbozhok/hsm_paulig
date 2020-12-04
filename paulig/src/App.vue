@@ -52,7 +52,7 @@ export default {
 			this.state = 'quiz';
 			this.stage = 0;
 			setTimeout(this.scrollToQuestion,100);
-			window.sendGA('click_begin');
+			window.sendGA('click_start');
 		},
 		scrollToQuestion(number = this.stage + 1) {
 			const element = document.getElementById('question-' + number);
